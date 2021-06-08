@@ -8,8 +8,12 @@
  */
 function trimProperties(obj) {
   // ✨ implement
+  let shallowTrimmedObject = { ...obj };
+  for (let [key, value] of Object.entries(shallowTrimmedObject)) {
+    shallowTrimmedObject[key] = value.trim();
+  }
+  return shallowTrimmedObject;
 }
-
 /**
  * [Exercise 2] trimPropertiesMutation trims in place the properties of an object
  * @param {object} obj - an object with properties that are strings
@@ -20,6 +24,8 @@ function trimProperties(obj) {
  */
 function trimPropertiesMutation(obj) {
   // ✨ implement
+  const deepTrimmedObject = obj.trim();
+  return deepTrimmedObject;
 }
 
 /**
@@ -32,6 +38,15 @@ function trimPropertiesMutation(obj) {
  */
 function findLargestInteger(integers) {
   // ✨ implement
+
+  let largest = 0;
+  integers.forEach((integer) => {
+    const value = Object.values(integer);
+    if (value[0] > largest) {
+      largest = value[0];
+    }
+  });
+  return largest;
 }
 
 class Counter {
@@ -93,8 +108,8 @@ class Car {
    * @param {number} mpg - miles the car can drive per gallon of gas
    */
   constructor(name, tankSize, mpg) {
-    this.odometer = 0 // car initilizes with zero miles
-    this.tank = tankSize // car initiazes full of gas
+    this.odometer = 0; // car initilizes with zero miles
+    this.tank = tankSize; // car initiazes full of gas
     // ✨ initialize whatever other properties are needed
   }
 
@@ -162,4 +177,4 @@ module.exports = {
   Counter,
   Seasons,
   Car,
-}
+};
