@@ -8,8 +8,12 @@
  */
 function trimProperties(obj) {
   // ✨ implement
+  let shallowTrimmedObject = {...obj}
+ for (let [key,value] of Object.entries(shallowTrimmedObject)){
+  shallowTrimmedObject[key] = value.trim()
+ }
+  return shallowTrimmedObject
 }
-
 /**
  * [Exercise 2] trimPropertiesMutation trims in place the properties of an object
  * @param {object} obj - an object with properties that are strings
@@ -20,6 +24,10 @@ function trimProperties(obj) {
  */
 function trimPropertiesMutation(obj) {
   // ✨ implement
+ for(let[key,value] of Object.entries(obj)){
+   obj[key] = value.trim()
+ }
+  return obj
 }
 
 /**
@@ -32,7 +40,18 @@ function trimPropertiesMutation(obj) {
  */
 function findLargestInteger(integers) {
   // ✨ implement
+
+let largest = 0
+integers.forEach(integer =>{
+const value = Object.values(integer)
+if (value[0] > largest){
+  largest = value[0]
 }
+})
+ return largest
+}
+
+
 
 class Counter {
   /**
@@ -41,6 +60,7 @@ class Counter {
    */
   constructor(initialNumber) {
     // ✨ initialize whatever properties are needed
+    this.counter = initialNumber;
   }
 
   /**
@@ -57,6 +77,10 @@ class Counter {
    */
   countDown() {
     // ✨ implement
+    while(this.counter >0){
+     --this.counter;
+      return this.counter
+    }
   }
 }
 
@@ -66,6 +90,10 @@ class Seasons {
    */
   constructor() {
     // ✨ initialize whatever properties are needed
+    this.summer = "summer"
+    this.fall = "fall"
+    this.winter = "winter"
+    this.spring = "spring"
   }
 
   /**
@@ -82,6 +110,7 @@ class Seasons {
    */
   next() {
     // ✨ implement
+    
   }
 }
 
@@ -95,6 +124,8 @@ class Car {
   constructor(name, tankSize, mpg) {
     this.odometer = 0 // car initilizes with zero miles
     this.tank = tankSize // car initiazes full of gas
+    this.name = name
+    this.mpg = mpg
     // ✨ initialize whatever other properties are needed
   }
 
