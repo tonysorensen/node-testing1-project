@@ -90,6 +90,10 @@ class Seasons {
    */
   constructor() {
     // ✨ initialize whatever properties are needed
+    this.summer = "summer"
+    this.fall = "fall"
+    this.winter = "winter"
+    this.spring = "spring"
   }
 
   /**
@@ -106,6 +110,7 @@ class Seasons {
    */
   next() {
     // ✨ implement
+    
   }
 }
 
@@ -119,6 +124,8 @@ class Car {
   constructor(name, tankSize, mpg) {
     this.odometer = 0 // car initilizes with zero miles
     this.tank = tankSize // car initiazes full of gas
+    this.name = name
+    this.mpg = mpg
     // ✨ initialize whatever other properties are needed
   }
 
